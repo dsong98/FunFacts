@@ -1,5 +1,5 @@
-# Pictures
+# FunFacts
 ### Web Application in React
 
-Idea:
-- Finds pictures from online and makes a photo album
+Use Online API to get fun facts about Chuck Norris
+- https://rapidapi.com/matchilling/api/chuck-norris
