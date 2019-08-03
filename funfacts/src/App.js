@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import NavigationBar from "./components/navbar";
+import SliderBar from "./components/carousel";
+
+import AwesomeSlider from "react-awesome-slider";
+import "react-awesome-slider/dist/styles.css";
+
+export default class Example extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        {/* NavBar */}
+        <NavigationBar />
+        {/* Container below Navbar */}
+        <div className="container">
+          <SliderBar />
+        </div>
+        
+        <AwesomeSlider>
+          <div data-src="/path/to/image-0.png" />
+          <div data-src="/path/to/image-1.png" />
+          <div data-src="/path/to/image-2.jpg" />
+        </AwesomeSlider>
+        
+      </div>
+    );
+  }
 }
-
-export default App;
