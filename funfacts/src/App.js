@@ -1,26 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Button } from "reactstrap";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import NavigationBar from "./components/navbar";
+import SliderBar from "./components/carousel";
+// import SliderBar from "./components/sliderbar"
+
+// import { backendUrl } from "./constants";
+
+const apiUrl =
+  "https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random";
+
+export default class Example extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      message: "This is from the Chuck Norris API"
+    };
+  }
+
+  displayMessage() {
+    var unirest = require("unirest");
+    var req = unirest("GET", apiUrl);
+
+    req.headers({
+      "x-rapidapi-host": "matchilling-chuck-norris-jokes-v1.p.rapidapi.com",
+      "x-rapidapi-key": "9131989ee8mshbcf45cebe8333f2p1cea31jsn5c6c9fbf16fb",
+      accept: "application/json"
+    });
+
+    req.end(function(res) {
+      if (res.error) throw new Error(res.error);
+      console.log(res.body.value)
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        {/* NavBar */}
+        <NavigationBar />
+        {/* Container below Navbar */}
+        <div className="container">
+          <div style={{ flex: 3 }} />
+
+          {/* Button to get fact */}
+          <div style={{ flex: 1 }}>
+            <Button onClick={() => this.displayMessage()}>Get Fun Fact!</Button>
+          </div>
+
+          <div style={{ flex: 5 }} />
+
+          <div style={{ flex: 1 }}>
+            <SliderBar />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;
