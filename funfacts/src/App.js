@@ -200,10 +200,10 @@ export default class Example extends React.Component {
           <NavigationBar />
 
           {/* Container below Navbar */}
-          <Container>
+          <Container >
             <div style={{ height: "50px" }} />
             <Row>
-              <Col xs="4" sm="4" className="centercol">
+              <Col xs="4" sm="4" className="centercol border-right">
                 {/* Popover for information on the page */}
                 <div style={{ height: "80px" }} className="centerstuff">
                   <InfoBox />
