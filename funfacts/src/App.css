@@ -25,11 +25,19 @@
   color: white;
 }
 
+.centercol {
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
 .centerstuff {
   align-content: center;
   align-items: center;
   justify-content: center;
   justify-items: center;
+  display: flex;
 }
 
 .App-link {
