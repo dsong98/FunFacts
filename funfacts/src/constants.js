@@ -1,1 +1,1 @@
-export const backendUrl = 'localhost:4000/testdb'
+export const backendUrl = 'localhost:4000'
